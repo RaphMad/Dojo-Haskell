@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import Dojo
 
 main :: IO ()
-main = someFunc
+main = print $ take 10 primes

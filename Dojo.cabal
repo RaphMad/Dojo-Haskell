@@ -1,6 +1,6 @@
 name:                Dojo
 version:             0.1.0.0
-synopsis:            Sample proejct for coding Dojos
+synopsis:            Base proejct for coding Dojos
 description:         Please see README.md
 homepage:            https://github.com/RaphMad/Dojo#readme
 license:             MIT
@@ -16,24 +16,26 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Dojo
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:       base >= 4.7 && < 5
   default-language:    Haskell2010
 
-executable Dojo-exe
+executable Dojo
   hs-source-dirs:      app
   main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  build-depends:       base
-                     , Dojo
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-depends:       base,
+                       Dojo
   default-language:    Haskell2010
 
 test-suite Dojo-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  build-depends:       base
-                     , Dojo
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base,
+                       hspec,
+                       Dojo
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall
   default-language:    Haskell2010
 
 source-repository head
